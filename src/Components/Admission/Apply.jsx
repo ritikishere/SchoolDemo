@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from "react"; 
 import { degrees, motion } from "motion/react"
 import Header from '../Header';
-import { Link } from 'react-router-dom';
 const Apply = () => {
 
   const [showForm, setShowForm] = useState(false);

@@ -48,7 +48,7 @@ const Header = () => {
       className="p-2 text-sm text-left border-b border-r border-gray-300 hover:underline hover:bg-blue-500">
         APPLY ONLINE
       </Link>
-      <Link to="admission/feestructure" className="p-2 text-sm text-left border-b border-r border-gray-300 hover:underline hover:bg-green-500">
+      <Link to="/admission/feestructure" className="p-2 text-sm text-left border-b border-r border-gray-300 hover:underline hover:bg-green-500">
         FEE STRUCTURE
       </Link>
       <button className="p-2 text-sm text-left border-b border-r border-gray-300 hover:underline hover:bg-amber-500">
