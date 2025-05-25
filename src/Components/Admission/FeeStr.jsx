@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const FeeStructure = () => {
+const FeeStr = () => {
   const feeData = [
     { class: "LKG", annual: "₹12,000", devFee: "₹2,000", monthly: "₹1,000" },
     { class: "UKG", annual: "₹12,500", devFee: "₹2,000", monthly: "₹1,050" },
@@ -71,4 +71,4 @@ const FeeStructure = () => {
   );
 };
 
-export default FeeStructure;
+export default FeeStr;

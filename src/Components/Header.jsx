@@ -7,12 +7,8 @@ const Header = () => {
 
   
   return (
-    <div className=''>
+    <div>
 
-      
-
-    
-       
 
     <div className="flex items-center gap-5 bg-[#001c39] opacity-90  ">
   <div className="w-20 flex items-center justify-center">
@@ -33,6 +29,8 @@ const Header = () => {
       
       <div className='flex ml-5 gap-15 items-center bg-[#50013b] text-white border-b-white border-b-1 h-10 px-3'>
      <Link to="/" className="font-bold text-lg" >HOME</Link>   
+     <Link to="/about" className="font-bold text-lg" >ABOUT</Link>   
+
      
 
  <div className="relative group inline-block">
