@@ -1,73 +1,84 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const [showAdmissions, setShowAdmissions] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Track screen width to detect mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // Run initially
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-
-  
   return (
     <div>
-
-
-    <div className="flex items-center gap-5 bg-[#001c39] opacity-90  ">
-  <div className="w-20 flex items-center justify-center">
-    <img
-      src="/images/LogoSchool.png"
-      alt="Student"
-      className="w-16"
-    />
-  </div>
-
-  <div>
-    <h1 className="text-3xl font-bold text-[#FFFFFF] text-shadow-lg shadow-black ">Brighton Education Academy</h1>
-    <div>
-      <h3 className="font-semibold text-[#FFFFFF] text-shadow-lg shadow-black ">Mananpur, Bihar</h3>
-    </div>
-  </div>
-</div>      
-      
-      <div className='flex ml-5 gap-15 items-center bg-[#50013b] text-white border-b-white border-b-1 h-10 px-3'>
-     <Link to="/" className="font-bold text-lg" >HOME</Link>   
-     <Link to="/about" className="font-bold text-lg" >ABOUT</Link>   
-
-     
-
- <div className="relative group inline-block">
-  <button className="font-bold text-lg">ADMISSIONS</button>
-
-  <div className="absolute left-0 mt-2 shadow-lg 
-                  opacity-0 group-hover:opacity-100 invisible group-hover:visible 
-                  transition-opacity duration-300 z-10">
-    <div className="flex flex-col gap-2 bg-[#325652] rounded overflow-hidden border text-white border-gray-300">
-      <Link to="/admission/apply" 
-      
-      
-      className="p-2 text-sm text-left border-b border-r border-gray-300 hover:underline hover:bg-blue-500">
-        APPLY ONLINE
-      </Link>
-      <Link to="/admission/feestructure" className="p-2 text-sm text-left border-b border-r border-gray-300 hover:underline hover:bg-green-500">
-        FEE STRUCTURE
-      </Link>
-      <button className="p-2 text-sm text-left border-b border-r border-gray-300 hover:underline hover:bg-amber-500">
-        HOSTEL FEE
-      </button>
-      <button className="p-2 text-sm text-left border-r border-gray-300 hover:underline hover:bg-pink-500">
-        APPLY FOR HOSTEL
-      </button>
-    </div>
-  </div>
-</div>
-
-
-
-
-  
+      {/* Top Header */}
+      <div className="flex flex-wrap items-center gap-3 bg-[#001c39] p-3">
+        <div className="w-16 flex items-center justify-center">
+          <img src="/images/LogoSchool.png" alt="Student" className="w-14" />
+        </div>
+        <div className="text-white">
+          <h1 className="text-xl md:text-3xl font-bold">Brighton Education Academy</h1>
+          <h3 className="text-sm md:text-base font-semibold">Mananpur, Bihar</h3>
+        </div>
       </div>
 
+      {/* Nav Bar */}
+      <div className="flex flex-wrap items-center gap-4 bg-[#50013b] text-white px-4 py-2">
+        <Link to="/" className="font-bold text-base md:text-lg">HOME</Link>
+        <Link to="/about" className="font-bold text-base md:text-lg">ABOUT</Link>
 
+        {/* ADMISSIONS dropdown */}
+        <div
+          className={`relative ${!isMobile ? "group" : ""}`}
+          onClick={() => isMobile && setShowAdmissions(!showAdmissions)}
+        >
+          <button className="font-bold text-base md:text-lg focus:outline-none">
+            ADMISSIONS
+          </button>
+
+          <div
+            className={`
+              absolute left-0 mt-2 bg-[#325652] border border-gray-300 rounded shadow-lg z-50 w-48 flex flex-col
+              ${isMobile ? (showAdmissions ? 'block' : 'hidden') : 'invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-300'}
+            `}
+          >
+            <Link
+              to="/admission/apply"
+              className="p-2 text-sm hover:underline hover:bg-blue-500 border-b border-gray-300"
+              onClick={() => setShowAdmissions(false)}
+            >
+              APPLY ONLINE
+            </Link>
+            <Link
+              to="/admission/feestructure"
+              className="p-2 text-sm hover:underline hover:bg-green-500 border-b border-gray-300"
+              onClick={() => setShowAdmissions(false)}
+            >
+              FEE STRUCTURE
+            </Link>
+            <button
+              className="p-2 text-sm hover:underline hover:bg-amber-500 border-b border-gray-300 text-left"
+              onClick={() => setShowAdmissions(false)}
+            >
+              HOSTEL FEE
+            </button>
+            <button
+              className="p-2 text-sm hover:underline hover:bg-pink-500 text-left"
+              onClick={() => setShowAdmissions(false)}
+            >
+              APPLY FOR HOSTEL
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
