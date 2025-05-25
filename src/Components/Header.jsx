@@ -29,7 +29,7 @@ const Header = () => {
       </div>
 
       {/* Nav Bar */}
-      <div className="flex flex-wrap items-center gap-4 bg-[#50013b] text-white px-4 py-2">
+      <div className="flex flex-wrap items-center gap-10  bg-[#50013b] text-white px-4 py-2">
         <Link to="/" className="font-bold text-base md:text-lg">HOME</Link>
         <Link to="/about" className="font-bold text-base md:text-lg">ABOUT</Link>
 

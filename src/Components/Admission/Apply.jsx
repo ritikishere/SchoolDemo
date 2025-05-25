@@ -1,139 +1,130 @@
-import React from 'react'
-import { useState } from "react"; 
-import { degrees, motion } from "motion/react"
-import Header from '../Header';
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import Header from "../Header";
+
 const Apply = () => {
-
   const [showForm, setShowForm] = useState(false);
+
   return (
-    
-    <div className='h-screen'>
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Header />
 
-    <Header/>  
+      {/* Hero Section */}
+      <div className="relative">
+        <img
+          src="/images/student.jpg"
+          alt="Student"
+          className="w-full h-[50vh] md:h-[70vh] object-cover  opacity-70"
+        />
 
+        {/* Admission Heading */}
+        <div className="absolute top-4 left-4 right-4 md:left-8 md:right-auto md:w-[50%] bg-gray-800 rounded-2xl shadow-lg p-6 text-center">
+          <h1 className="text-lg md:text-3xl font-bold">
+            Admission Information
+          </h1>
+        </div>
 
+        {/* Info Box */}
+        <div className="absolute top-32 left-4 right-4 md:left-8 md:w-[52%] bg-gray-800 text-white shadow-lg rounded-2xl p-8 mt-4">
+          <h2 className="text-sm md:text-xl font-semibold text-center underline mb-4">
+            Brighton Education Academy welcomes all students to a bright future! 📚✨
+          </h2>
+          <ul className="text-xs md:text-lg space-y-2 pl-2">
+            <li>🔹 Admission Open for 2025 Session (LKG to Class 10th)</li>
+            <li>🔹 Classes from LKG to 10th (CBSE Board)</li>
+            <li>🔹 Foundation Preparation for Olympiads, NTSE, etc.</li>
+            <li>🔹 Experienced Faculty with Smart Classrooms</li>
+            <li>🔹 Affordable Fees with Scholarship Facility</li>
+            <li>🔹 Free Demo Classes Available</li>
+            <li>🔹 Hostel Facility Available for Boys and Girls</li>
+          </ul>
 
- <div className=' overflow-hidden bg-black relative  '>
-  <img
-        src="/images/student.jpg"
-        alt="Student"
-        className='opacity-70 '
-      />
+          {!showForm && (
+            <div className="mt-6 flex justify-center">
+              <button
+                onClick={() => setShowForm(true)}
+                className="bg-[#001c39] hover:bg-[#4c00ff8a] px-6 py-3 md:px-10 md:py-4 rounded-lg text-white text-sm md:text-lg transition relative top-10  duration-300  shadow-lg"
+              >
+                📝 Register Now
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
 
-    <div 
-    
-
-    className='bg-gray-800 w-209 shadow-lg shadow-black rounded-3xl h-20 flex items-center justify-center absolute inset-0 top-5 left-5 '>
-      <h1 className=' top-5 left-5 text-6xl text-white '>Admission Information</h1> 
-</div>  
-    <div className='bg-transparent shadow-lg shadow-black  w-209 h-140 flex flex-col items-center  text-white absolute inset-0 top-30 left-5 '>
-    <h1 className='top-5 text-2xl text-bold underline left-5'>Brighton Education Academy welcomes all students to a bright future! 📚✨</h1> 
-    <ul className='gap-8 top-5 relative text-xl flex flex-col'>
-    <li>🔹 Admission Open for 2025 Session (LKG to Class 10th)</li>
-    <li>🔹 Classes from LKG to 10th (CBSE Board)</li>
-    <li>🔹 Foundation Preparation for Olympiads, NTSE, etc.</li>
-    <li>🔹 Experienced Faculty with Smart Classrooms</li>
-    <li>🔹 Affordable Fees with Scholarship Facility</li>
-    <li>🔹 Free Demo Classes Available</li>
-    <li>🔹 Hostel Facility Available for Boys and Girls</li>
-</ul>
-
-<div className=" top-22 relative text-white flex flex-col items-center justify-center px-4">
-    {!showForm && (
-        <button
-          onClick={() => setShowForm(true)}
-          className="bg-[#001c39] hover:bg-[#4c00ff8a] text-white cursor-pointer rounded-lg text-xl transition duration-300 shadow-lg"
-        >
-          <h1 className=' w-50 h-10 flex items-center justify-center  '>📝 Register Now</h1>
-        </button>
-      )}  </div>
-
-
-</div>  
-
-
-
-    
-      </div> 
-
-<div className=" bg-gray-900 text-white flex h-[60vh] items-center justify-center ">
-      
-
+      {/* Registration Form Section */}
       {showForm && (
-        <motion.form
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="w-full max-w-2xl bg-gray-800 top-0 flex flex-col gap-4 rounded-2xl shadow-2xl space-y-6 "
-        >
-          <h2 className="text-xl top-2 relative font-semibold text-center ">Student Registration</h2>
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            required
-            className="w-full h-8 p-3 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none "
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            pattern="[0-9]{10}"
-            required
-            className="w-full p-3 h-8 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none "
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            className="w-full p-3 h-8 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none "
-          />
-          <select
-            name="class"
-            required
-            className="w-full p-3 h-8 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none "
+        <div className="bg-gray-900 h-[50vh] flex items-center justify-center px-4  py-10">
+          <motion.form
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full max-w-xl  bg-gray-800 p-8 flex gap-2 relative  flex-col rounded-2xl shadow-2xl space-y-6"
           >
-            <option value="">Select Class</option>
-            <option>LKG</option>
-            <option>UKG</option>
-            <option>1st</option>
-            <option>2nd</option>
-            <option>3rd</option>
-            <option>4th</option>
-            <option>5th</option>
-            <option>6th</option>
-            <option>7th</option>
-            <option>8th</option>
-            <option>9th</option>
-            <option>10th</option>
-            <option>Foundation / Olympiads</option>
-          </select>
-          <textarea
-            name="message"
-            placeholder="Any specific query..."
-            rows="3"
-            className="w-full p-3 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none "
-          ></textarea>
+            <h2 className="text-lg md:text-2xl font-semibold text-center mb-2">
+              Student Registration
+            </h2>
 
-          <button
-            type="submit"
-            className="w-full h-8 bg-blue-600 hover:bg-blue-700 transition duration-300 py-3 rounded-md text-lg font-medium cursor-pointer"
-          >
-            Submit
-          </button>
-        </motion.form>
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              required
+              className="w-full p-4 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none text-sm md:text-base"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              pattern="[0-9]{10}"
+              required
+              className="w-full p-4 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none text-sm md:text-base"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              className="w-full p-4 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none text-sm md:text-base"
+            />
+            <select
+              name="class"
+              required
+              className="w-full p-4 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none text-sm md:text-base"
+            >
+              <option value="">Select Class</option>
+              <option>LKG</option>
+              <option>UKG</option>
+              <option>1st</option>
+              <option>2nd</option>
+              <option>3rd</option>
+              <option>4th</option>
+              <option>5th</option>
+              <option>6th</option>
+              <option>7th</option>
+              <option>8th</option>
+              <option>9th</option>
+              <option>10th</option>
+              <option>Foundation / Olympiads</option>
+            </select>
+            <textarea
+              name="message"
+              placeholder="Any specific query..."
+              rows="3"
+              className="w-full p-4 border border-gray-600 rounded-md bg-gray-700 placeholder-gray-400 focus:outline-none text-sm md:text-base"
+            ></textarea>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 transition duration-300 py-3 rounded-md text-base font-medium cursor-pointer"
+            >
+              Submit
+            </button>
+          </motion.form>
+        </div>
       )}
-    </div>      
-
     </div>
   );
-}
-
-
-
-
-
+};
 
 export default Apply;
