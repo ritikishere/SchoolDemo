@@ -46,7 +46,7 @@ const Apply = () => {
           class: '',
           message: '',
           date: '',
-          time: '',
+          time: ''
         });
       } else {
         alert("❌ Submission failed!");

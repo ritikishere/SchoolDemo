@@ -20,7 +20,7 @@ const Header = () => {
       {/* Top Header */}
       <div className="flex flex-wrap items-center gap-3 bg-[#001c39] p-3">
         <div className="w-16 flex items-center justify-center">
-          <img src="/images/LogoSchool.png" alt="Student" className="w-14" />
+          <img src="/images/LogoSchool.png" alt="Logo" className="w-14  "  />
         </div>
         <div className="text-white">
           <h1 className="text-xl md:text-3xl font-bold">Brighton Education Academy</h1>
@@ -29,7 +29,7 @@ const Header = () => {
       </div>
 
       {/* Nav Bar */}
-      <div className="flex flex-wrap items-center gap-10  bg-[#50013b] text-white px-4 py-2">
+      <div className="flex flex-wrap items-center justify-around  bg-[#50013b] text-white px-4 py-2">
         <Link to="/" className="font-bold text-base md:text-lg">HOME</Link>
         <Link to="/about" className="font-bold text-base md:text-lg">ABOUT</Link>
 
