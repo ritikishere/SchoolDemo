@@ -124,8 +124,9 @@ const Apply = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
+            action="https://formsubmit.co/ritikkumarjamui2006@gmail.com"
             method="POST"
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             
             className="w-full max-w-xl  bg-gray-800 p-8 flex gap-2 relative  flex-col rounded-2xl shadow-2xl space-y-6"
           >

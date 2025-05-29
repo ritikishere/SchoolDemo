@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Apply from './Components/Admission/Apply'
 import Header from './Components/Header'
 import Home from './Components/Home'
 import FeeStr from './Components/Admission/FeeStr';
 import About from './Components/About'
 import Result from './Components/Result';
+import ScrollToTop from './Components/ScrollTop';
 
 
 const App = () => {
@@ -19,7 +20,9 @@ const App = () => {
 
 
     <div className=' w-full h-[100vh] bg-black' >
-      <Routes>
+
+      
+        <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/admission/apply" element={<Apply/>} />
       <Route path="/admission/feestructure" element={<FeeStr/>} />
@@ -30,6 +33,10 @@ const App = () => {
 
 
     </Routes>
+      
+        
+      
+      
 
 
     </div>
