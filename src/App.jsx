@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Apply from './Components/Admission/Apply'
 import Header from './Components/Header'
 import Home from './Components/Home'
@@ -14,25 +14,33 @@ const App = () => {
   
   return (
 
-    
-
-
-
-
     <div className=' w-full h-[100vh] bg-black' >
 
-      
-        <Routes>
+
+
+<ScrollToTop/>
+  <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/admission/apply" element={<Apply/>} />
       <Route path="/admission/feestructure" element={<FeeStr/>} />
       <Route path="/about" element={<About/>} />
       <Route path="/result" element={<Result/>} />
 
-
-
-
     </Routes>
+
+      
+
+  
+  
+
+    
+      
+
+  
+
+    
+      
+        
       
         
       

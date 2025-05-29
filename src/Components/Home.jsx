@@ -85,6 +85,8 @@ export default function Home() {
           <Link to="/admission/apply" style={styles.link}>📢 Admission open for session 2025 </Link>
           <a href="#" style={styles.link}>📅 Annual function on 15th April </a>
           <a href="#" style={styles.link}>🏫 School timings updated for summer season</a>
+          <Link to="/result" style={styles.link}>📢 Result out </Link>
+
         </div>
       </nav>
 
