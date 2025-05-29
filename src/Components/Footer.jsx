@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const fadeInUp = {
@@ -11,6 +12,8 @@ const Footer = () => {
       transition: { delay: 0.15 * i, duration: 0.8, ease: "easeOut" },
     }),
   };
+
+  
 
   return (
     <motion.footer
@@ -42,31 +45,32 @@ const Footer = () => {
         </motion.div>
 
         {/* Quick Links */}
-        <motion.div variants={fadeInUp} custom={2}>
-          <h3 className="text-2xl font-semibold mb-6">Quick Links</h3>
-          <ul className="space-y-4 text-base font-medium">
-            {[
-              { name: "🏠 Home", link: "/" },
-              { name: "📖 About Us", link: "/about" },
-              { name: "🎓 Admissions", link: "/admission/apply" },
-              { name: "📞 Contact", link: "/contact" },
-            ].map(({ name, link }, i) => (
-              <li key={i}>
-                <motion.a
-                  href={link}
-                  whileHover={{
-                    x: 8,
-                    color: "#fb7185",
-                    transition: { duration: 0.3 },
-                  }}
-                  className="inline-block text-gray-300"
-                >
-                  {name}
-                </motion.a>
-              </li>
-            ))}
-          </ul>
+        {/* Quick Links */}
+<motion.div variants={fadeInUp} custom={2}>
+  <h3 className="text-2xl font-semibold mb-6">Quick Links</h3>
+  <ul className="space-y-4 text-base font-medium">
+    {[
+      { name: "🏠 Home", link: "/" },
+      { name: "📖 About Us", link: "/about" },
+      { name: "🎓 Admissions", link: "/admission/apply" },
+      { name: "📞 Contact", link: "/contact" },
+    ].map(({ name, link }, i) => (
+      <li key={i}>
+        <motion.div
+          whileHover={{
+            x: 8,
+            color: "#fb7185",
+            transition: { duration: 0.3 },
+          }}
+          className="inline-block text-gray-300"
+        >
+          <Link to={link}>{name}</Link>
         </motion.div>
+      </li>
+    ))}
+  </ul>
+</motion.div>
+
 
         {/* Contact Info */}
         <motion.div variants={fadeInUp} custom={3}>

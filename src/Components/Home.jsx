@@ -113,38 +113,43 @@ export default function Home() {
         </div>  
 
         <div className="flex flex-wrap justify-center gap-6 px-4 mt-6">
-  <Link
-    to="/admission/apply"
-    className="flex flex-col items-center justify-center gap-4 bg-white rounded-2xl shadow-lg p-6 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-xl h-[20vh] w-[80vw] sm:w-[40vw] lg:w-[20vw]"
-  >
-    <FaFileAlt className="text-5xl text-rose-500 mb-2" />
-    <h3 className="text-xl font-semibold text-gray-800 text-center">Apply Online</h3>
-  </Link>
-
-  <Link
-    to="/result"
-    className="flex flex-col items-center justify-center gap-4 bg-white rounded-2xl shadow-lg p-6 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-xl h-[20vh] w-[80vw] sm:w-[40vw] lg:w-[20vw]"
-  >
-    <FaPoll className="text-5xl text-rose-500 mb-2" />
-    <h3 className="text-xl font-semibold text-gray-800 text-center">Results</h3>
-  </Link>
-
-  <Link
-    to="/admission/feestructure"
-    className="flex flex-col items-center justify-center gap-4 bg-white rounded-2xl shadow-lg p-6 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-xl h-[20vh] w-[80vw] sm:w-[40vw] lg:w-[20vw]"
-  >
-    <FaMoneyCheckAlt className="text-5xl text-rose-500 mb-2" />
-    <h3 className="text-xl font-semibold text-gray-800 text-center">Fee Structure</h3>
-  </Link>
-
-  <Link
-    to="/gallery"
-    className="flex flex-col items-center justify-center gap-4 bg-white rounded-2xl shadow-lg p-6 cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-xl h-[20vh] w-[80vw] sm:w-[40vw] lg:w-[20vw]"
-  >
-    <FaImages className="text-5xl text-rose-500 mb-2" />
-    <h3 className="text-xl font-semibold text-gray-800 text-center">Gallery</h3>
-  </Link>
+  {[
+    {
+      to: "/admission/apply",
+      icon: <FaFileAlt className="text-5xl text-rose-500 mb-2" />,
+      label: "Apply Online",
+    },
+    {
+      to: "/result",
+      icon: <FaPoll className="text-5xl text-rose-500 mb-2" />,
+      label: "Results",
+    },
+    {
+      to: "/admission/feestructure",
+      icon: <FaMoneyCheckAlt className="text-5xl text-rose-500 mb-2" />,
+      label: "Fee Structure",
+    },
+    {
+      to: "/gallery",
+      icon: <FaImages className="text-5xl text-rose-500 mb-2" />,
+      label: "Gallery",
+    },
+  ].map(({ to, icon, label }, index) => (
+    <Link
+      key={index}
+      to={to}
+      className="flex flex-col items-center justify-center gap-4 bg-white rounded-2xl shadow-lg p-6 cursor-pointer 
+                 transform transition-transform duration-300
+                 hover:scale-105 hover:shadow-xl 
+                 active:scale-95 active:shadow-md
+                 h-[20vh] w-[80vw] sm:w-[40vw] lg:w-[20vw]"
+    >
+      {icon}
+      <h3 className="text-xl font-semibold text-gray-800 text-center">{label}</h3>
+    </Link>
+  ))}
 </div>
+
 
       <Footer />
       </div>
