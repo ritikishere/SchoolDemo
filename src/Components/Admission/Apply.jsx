@@ -103,7 +103,9 @@ const Apply = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            onSubmit={handleSubmit}
+            method="POST"
+            action= "https://formsubmit.co/sumitkjmu09@gmail.com"
+            // onSubmit={handleSubmit}
             className="w-full max-w-xl bg-gray-800 p-8 flex gap-2 flex-col rounded-2xl shadow-2xl space-y-6"
           >
             <h2 className="text-lg md:text-2xl font-semibold text-center mb-2">Student Registration</h2>
